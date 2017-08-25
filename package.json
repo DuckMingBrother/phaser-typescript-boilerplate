@@ -1,0 +1,32 @@
+{
+  "name": "phaser-typescript-boilerplate",
+  "version": "1.0.00",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.config.js --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DuckMingBrother/phaser-typescript-boilerplate"
+  },
+  "author": "duck",
+  "bugs": {
+    "url": "https://github.com/DuckMingBrother"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "0.1.16",
+    "copy-webpack-plugin": "4.0.1",
+    "echo-cli": "1.0.8",
+    "expose-loader": "0.7.3",
+    "file-loader": "0.11.2",
+    "html-webpack-plugin": "2.29.0",
+    "ts-loader": "2.3.2",
+    "tslint": "5.5.0",
+    "tslint-loader": "3.5.3",
+    "typescript": "2.4.2",
+    "webpack": "3.4.1",
+    "webpack-dev-server": "2.6.1"
+  },
+  "dependencies": {
+    "phaser-ce": "2.8.4"
+  }
+}
