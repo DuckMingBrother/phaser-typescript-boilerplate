@@ -2,7 +2,6 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-var WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
     entry: path.join(__dirname, 'src/app.ts'),
@@ -20,9 +19,6 @@ module.exports = {
         }
     },
     plugins: [
-        new WebpackShellPlugin({
-            onBuildStart: ['npm run assets']
-        }),
         new webpack.DefinePlugin({
             'DEBUG': false
         }),
@@ -61,6 +57,18 @@ module.exports = {
             {
                 test: /assets(\/|\\)/,
                 loader: 'file-loader?name=assets/[hash].[ext]'
+            },
+            {
+                test: /pixi\.js$/,
+                loader: 'expose-loader?PIXI'
+            },
+            {
+                test: /phaser-split\.js$/,
+                loader: 'expose-loader?Phaser'
+            },
+            {
+                test: /p2\.js$/,
+                loader: 'expose-loader?p2'
             },
             {
                 test: /\.ts$/,
