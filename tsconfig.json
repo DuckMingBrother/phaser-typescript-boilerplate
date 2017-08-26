@@ -6,6 +6,7 @@
   },
   "files": [
     "./src/app.ts",
+    "node_modules/ts-nameof/ts-nameof.d.ts",
     "./node_modules/phaser-ce/typescript/phaser.comments.d.ts"
   ]
 }

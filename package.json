@@ -22,6 +22,8 @@
     "ts-loader": "2.3.2",
     "tslint": "5.5.0",
     "tslint-loader": "3.5.3",
+	"ts-nameof": "0.10.2",
+    "ts-nameof-loader": "1.0.1",
     "typescript": "2.4.2",
     "webpack": "3.4.1",
     "webpack-dev-server": "2.6.1"

@@ -72,7 +72,7 @@ module.exports = {
             },
             {
                 test: /\.ts$/,
-                loader: 'ts-loader',
+                loader: ['ts-loader', 'ts-nameof-loader'],
                 exclude: '/node_modules/'
             }
         ]
