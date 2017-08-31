@@ -2,7 +2,7 @@
   "name": "phaser-typescript-boilerplate",
   "version": "1.0.00",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.config.js --open"
+    "start": "ts-node node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.config.ts --open"
   },
   "repository": {
     "type": "git",
@@ -13,6 +13,10 @@
     "url": "https://github.com/DuckMingBrother"
   },
   "devDependencies": {
+    "@types/copy-webpack-plugin": "4.0.1",
+    "@types/html-webpack-plugin": "2.28.0",
+    "@types/webpack": "3.0.10",
+    "@types/webpack-dev-server": "2.4.1",
     "clean-webpack-plugin": "0.1.16",
     "copy-webpack-plugin": "4.0.1",
     "echo-cli": "1.0.8",
@@ -20,10 +24,11 @@
     "file-loader": "0.11.2",
     "html-webpack-plugin": "2.29.0",
     "ts-loader": "2.3.2",
+    "ts-nameof": "0.10.2",
+    "ts-nameof-loader": "1.0.1",
+    "ts-node": "3.3.0",
     "tslint": "5.5.0",
     "tslint-loader": "3.5.3",
-	"ts-nameof": "0.10.2",
-    "ts-nameof-loader": "1.0.1",
     "typescript": "2.4.2",
     "webpack": "3.4.1",
     "webpack-dev-server": "2.6.1"

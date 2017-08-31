@@ -1,9 +1,10 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import * as CopyWebpackPlugin from 'copy-webpack-plugin'
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as path from 'path';
+import * as webpack from 'webpack';
 
-module.exports = {
+const config: webpack.Configuration = {
     entry: path.join(__dirname, 'src/app.ts'),
     output: {
         path: path.join(__dirname, 'dist'),
@@ -20,7 +21,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'DEBUG': true,
+            DEBUG: true,
         }),
         new CleanWebpackPlugin([
             path.join(__dirname, 'dist')
@@ -28,7 +29,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'game',
             template: path.join(__dirname, 'templates/index.ejs')
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: 'assets',
+            to: 'assests'
+        }])
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
@@ -42,33 +47,36 @@ module.exports = {
         }
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.ts$/,
                 enforce: 'pre',
-                loader: 'tslint-loader'
+                use: 'tslint-loader'
             },
             {
                 test: /assets(\/|\\)/,
-                loader: 'file-loader?name=assets/[hash].[ext]'
+                use: 'file-loader?name=assets/[hash].[ext]'
             },
             {
                 test: /pixi\.js$/,
-                loader: 'expose-loader?PIXI'
+                use: 'expose-loader?PIXI'
             },
             {
                 test: /phaser-split\.js$/,
-                loader: 'expose-loader?Phaser'
+                use: 'expose-loader?Phaser'
             },
             {
                 test: /p2\.js$/,
-                loader: 'expose-loader?p2'
+                use: 'expose-loader?p2'
             },
             {
                 test: /\.ts$/,
-                loader: ['ts-loader', 'ts-nameof-loader'],
+                use: ['ts-loader', 'ts-nameof-loader'],
                 exclude: '/node_modules/'
             }
         ]
     },
     devtool: 'eval'
 };
+
+export default config;
